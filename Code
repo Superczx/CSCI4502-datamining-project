@@ -1,0 +1,102 @@
+import pandas as pd
+import numpy as np
+import sys
+import matplotlib.pylab as plt
+%matplotlib inline
+import pylab as pl
+from pandas import *
+
+
+#read file
+dfH= pd.read_csv("usp.csv")
+dfH
+
+#clean date time
+dfH['Date Local']=pd.to_datetime(dfH['Date Local'])
+#dfg= dfH.sort_values(by="Date", ascending=True)
+print(dfH.head(10))
+
+#plot line chart for mean pollutants over time
+ax=dfH.plot(x = "Date Local", y = ["NO2 Mean", "O3 Mean", "SO2 Mean", "CO Mean"],figsize=(20,10), grid=True,title="Pollutants Change")
+ax.set_xlabel("Date", fontsize=16)
+ax.set_ylabel("Value", fontsize=16)
+plt.show()
+
+#boxplot
+fig = plt.figure(figsize=(10,10))
+ax=dfH.boxplot(["NO2 Mean", "O3 Mean", "SO2 Mean", "CO Mean"])
+ax.set_ylabel("Value", fontsize=16)
+plt.show()
+
+#scatter plot for "O3 Mean vs. NO2 Mean" correlation
+ax=dfH.plot(kind="scatter", x="O3 Mean",y="NO2 Mean", color="b", label="O3 Mean vs. NO2 Mean")
+plt.show()
+corr=dfH['NO2 Mean'].corr(dfH['O3 Mean'])
+print(corr)
+
+#scatter plot for "SO2 Mean vs. NO2 Mean" correlation
+ax=dfH.plot(kind="scatter", x="SO2 Mean",y="NO2 Mean", color="b", label="SO2 Mean vs. NO2 Mean")
+plt.show()
+corr=dfH['NO2 Mean'].corr(dfH['SO2 Mean'])
+print(corr)
+
+#scatter plot for "CO Mean vs. NO2 Mean" correlation
+dfH.plot(kind="scatter", x="CO Mean",y="NO2 Mean", color="b", label="CO Mean vs. NO2 Mean")
+plt.show()
+corr=dfH['NO2 Mean'].corr(dfH['CO Mean'])
+print(corr)
+
+#scatter plot for "O3 Mean vs. SO2 Mean" correlation
+dfH.plot(kind="scatter", x="O3 Mean",y="SO2 Mean", color="b", label="O3 Mean vs. SO2 Mean")
+plt.show()
+corr=dfH['O3 Mean'].corr(dfH['SO2 Mean'])
+print(corr)
+
+#scatter plot for "O3 Mean vs. CO Mean" correlation
+dfH.plot(kind="scatter", x="O3 Mean",y="CO Mean", color="b", label="O3 Mean vs. CO Mean")
+plt.show()
+corr=dfH['O3 Mean'].corr(dfH['CO Mean'])
+print(corr)
+
+#scatter plot for "SO2 Mean vs. CO Mean" correlation
+dfH.plot(kind="scatter", x="SO2 Mean",y="CO Mean", color="b", label="SO2 Mean vs. CO Mean")
+plt.show()
+corr=dfH['SO2 Mean'].corr(dfH['CO Mean'])
+print(corr)
+
+# Plot the aggregate decrease of all pollutants
+dfH['year'] = dfH['Date Local'].dt.year
+f, ax = plt.subplots(figsize=[10,4])
+dfH.groupby(['year']).agg({'NO2 1st Max Value': 'mean',
+                          'O3 1st Max Value': 'mean',
+                          'SO2 1st Max Value': 'mean',
+                          'CO 1st Max Value': 'mean'})\
+.plot(lw=2,colormap='jet',marker='.',markersize=10, ax =ax,linewidth=2.5)
+ax.set_title('Mean Pollutant Max Value Over Time')
+ax.set(xlabel="Year", ylabel="Max value")
+plt.show()
+
+#compare California and New York AQI
+dfHcal = dfH[(dfH.State=='California')].copy()
+dfHnew = dfH[(dfH.State=='New York')].copy()
+#print(dfHcal)
+dfHcal['year'] = dfHcal['Date Local'].dt.year
+dfHnew['year'] = dfHnew['Date Local'].dt.year
+f, ax = plt.subplots(figsize=[10,4])
+dfHcal.groupby(['year']).agg({'NO2 AQI': 'mean',
+                          'O3 AQI': 'mean',
+                          'SO2 AQI': 'mean',
+                          'CO AQI': 'mean'})\
+.plot(lw=2,colormap='Paired',marker='.',markersize=10, ax =ax,linewidth=2.5)
+
+#f, ax = plt.subplots(figsize=[10,4])
+dfHnew.groupby(['year']).agg({'NO2 AQI': 'mean',
+                          'O3 AQI': 'mean',
+                          'SO2 AQI': 'mean',
+                          'CO AQI': 'mean'})\
+.plot(lw=2,colormap='Paired',marker='d',markersize=10, ax =ax,linewidth=2.5)
+ax.set_title('Mean Pollutant AQI Over Time comparsion California and New York')
+ax.set(xlabel="year", ylabel="AQI")
+
+plt.show()
+
