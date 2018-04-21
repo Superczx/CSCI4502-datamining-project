@@ -1,3 +1,4 @@
+
 import pandas as pd
 import numpy as np
 import sys
@@ -9,65 +10,65 @@ from pandas import *
 
 #read file
 dfH= pd.read_csv("usp.csv")
-dfH
-
+# data clean, only take the useful data from the csv file
+data=dfH[['State','Date Local','NO2 Mean', 'NO2 1st Max Value', 'NO2 1st Max Hour','NO2 AQI','O3 Mean', 'O3 1st Max Value', 'O3 1st Max Hour','O3 AQI','SO2 Mean', 'SO2 1st Max Value', 'SO2 1st Max Hour','SO2 AQI','CO Mean', 'CO 1st Max Value', 'CO 1st Max Hour','CO AQI']]
 #clean date time
-dfH['Date Local']=pd.to_datetime(dfH['Date Local'])
+data['Date Local']=pd.to_datetime(data['Date Local'])
 #dfg= dfH.sort_values(by="Date", ascending=True)
-print(dfH.head(10))
+print(data.head(10))
 
 #plot line chart for mean pollutants over time
-ax=dfH.plot(x = "Date Local", y = ["NO2 Mean", "O3 Mean", "SO2 Mean", "CO Mean"],figsize=(20,10), grid=True,title="Pollutants Change")
+ax=data.plot(x = "Date Local", y = ["NO2 Mean", "O3 Mean", "SO2 Mean", "CO Mean"],figsize=(20,10), grid=True,title="Pollutants Change")
 ax.set_xlabel("Date", fontsize=16)
 ax.set_ylabel("Value", fontsize=16)
 plt.show()
 
 #boxplot
 fig = plt.figure(figsize=(10,10))
-ax=dfH.boxplot(["NO2 Mean", "O3 Mean", "SO2 Mean", "CO Mean"])
+ax=data.boxplot(["NO2 Mean", "O3 Mean", "SO2 Mean", "CO Mean"])
 ax.set_ylabel("Value", fontsize=16)
 plt.show()
 
 #scatter plot for "O3 Mean vs. NO2 Mean" correlation
-ax=dfH.plot(kind="scatter", x="O3 Mean",y="NO2 Mean", color="b", label="O3 Mean vs. NO2 Mean")
+ax=data.plot(kind="scatter", x="O3 Mean",y="NO2 Mean", color="b", label="O3 Mean vs. NO2 Mean")
 plt.show()
-corr=dfH['NO2 Mean'].corr(dfH['O3 Mean'])
+corr=data['NO2 Mean'].corr(data['O3 Mean'])
 print(corr)
 
 #scatter plot for "SO2 Mean vs. NO2 Mean" correlation
-ax=dfH.plot(kind="scatter", x="SO2 Mean",y="NO2 Mean", color="b", label="SO2 Mean vs. NO2 Mean")
+ax=data.plot(kind="scatter", x="SO2 Mean",y="NO2 Mean", color="b", label="SO2 Mean vs. NO2 Mean")
 plt.show()
-corr=dfH['NO2 Mean'].corr(dfH['SO2 Mean'])
+corr=data['NO2 Mean'].corr(data['SO2 Mean'])
 print(corr)
 
 #scatter plot for "CO Mean vs. NO2 Mean" correlation
-dfH.plot(kind="scatter", x="CO Mean",y="NO2 Mean", color="b", label="CO Mean vs. NO2 Mean")
+data.plot(kind="scatter", x="CO Mean",y="NO2 Mean", color="b", label="CO Mean vs. NO2 Mean")
 plt.show()
-corr=dfH['NO2 Mean'].corr(dfH['CO Mean'])
+corr=data['NO2 Mean'].corr(data['CO Mean'])
 print(corr)
 
 #scatter plot for "O3 Mean vs. SO2 Mean" correlation
-dfH.plot(kind="scatter", x="O3 Mean",y="SO2 Mean", color="b", label="O3 Mean vs. SO2 Mean")
+data.plot(kind="scatter", x="O3 Mean",y="SO2 Mean", color="b", label="O3 Mean vs. SO2 Mean")
 plt.show()
-corr=dfH['O3 Mean'].corr(dfH['SO2 Mean'])
+corr=data['O3 Mean'].corr(data['SO2 Mean'])
 print(corr)
 
 #scatter plot for "O3 Mean vs. CO Mean" correlation
-dfH.plot(kind="scatter", x="O3 Mean",y="CO Mean", color="b", label="O3 Mean vs. CO Mean")
+data.plot(kind="scatter", x="O3 Mean",y="CO Mean", color="b", label="O3 Mean vs. CO Mean")
 plt.show()
-corr=dfH['O3 Mean'].corr(dfH['CO Mean'])
+corr=data['O3 Mean'].corr(data['CO Mean'])
 print(corr)
 
 #scatter plot for "SO2 Mean vs. CO Mean" correlation
-dfH.plot(kind="scatter", x="SO2 Mean",y="CO Mean", color="b", label="SO2 Mean vs. CO Mean")
+data.plot(kind="scatter", x="SO2 Mean",y="CO Mean", color="b", label="SO2 Mean vs. CO Mean")
 plt.show()
-corr=dfH['SO2 Mean'].corr(dfH['CO Mean'])
+corr=data['SO2 Mean'].corr(data['CO Mean'])
 print(corr)
 
 # Plot the aggregate decrease of all pollutants
-dfH['year'] = dfH['Date Local'].dt.year
+data['year'] = data['Date Local'].dt.year
 f, ax = plt.subplots(figsize=[10,4])
-dfH.groupby(['year']).agg({'NO2 1st Max Value': 'mean',
+data.groupby(['year']).agg({'NO2 1st Max Value': 'mean',
                           'O3 1st Max Value': 'mean',
                           'SO2 1st Max Value': 'mean',
                           'CO 1st Max Value': 'mean'})\
@@ -77,8 +78,8 @@ ax.set(xlabel="Year", ylabel="Max value")
 plt.show()
 
 #compare California and New York AQI
-dfHcal = dfH[(dfH.State=='California')].copy()
-dfHnew = dfH[(dfH.State=='New York')].copy()
+dfHcal = data[(data.State=='California')].copy()
+dfHnew = data[(data.State=='New York')].copy()
 #print(dfHcal)
 dfHcal['year'] = dfHcal['Date Local'].dt.year
 dfHnew['year'] = dfHnew['Date Local'].dt.year
