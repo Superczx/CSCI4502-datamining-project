@@ -101,3 +101,92 @@ ax.set(xlabel="year", ylabel="AQI")
 
 plt.show()
 
+
+
+
+
+#four pollutants AQI comparing four states
+#NO2
+data1=data[['State','Date Local','NO2 AQI']]
+data1
+state1=data1[(data1.State=='California')]
+state2=data1[(data1.State=='Colorado')]
+state3=data1[(data1.State=='Florida')]
+state4=data1[(data1.State=='New York')]
+state1['year'] = state1['Date Local'].dt.year
+state2['year'] = state2['Date Local'].dt.year
+state3['year'] = state3['Date Local'].dt.year
+state4['year'] = state4['Date Local'].dt.year
+fig, ax = plt.subplots(figsize=[10,4])
+state1.groupby(['year']).agg({'NO2 AQI': 'mean'}).plot(lw=2,color='red', ax =ax,linewidth=2.5)
+state2.groupby(['year']).agg({'NO2 AQI': 'mean'}).plot(lw=2,color='blue', ax =ax,linewidth=2.5)
+state3.groupby(['year']).agg({'NO2 AQI': 'mean'}).plot(lw=2,color='orange',ax =ax,linewidth=2.5)
+state4.groupby(['year']).agg({'NO2 AQI': 'mean'}).plot(lw=2,color='black', ax =ax,linewidth=2.5)
+ax.set_title('NO2 AQI of Four States Over Time')
+ax.set(xlabel="year", ylabel="NO2 AQI")
+ax.legend(['California','Colorado','Florida','New York'])
+plt.show()
+
+
+#O3
+data2=data[['State','Date Local','O3 AQI']]
+data2
+state1=data2[(data1.State=='California')]
+state2=data2[(data1.State=='Colorado')]
+state3=data2[(data1.State=='Florida')]
+state4=data2[(data1.State=='New York')]
+state1['year'] = state1['Date Local'].dt.year
+state2['year'] = state2['Date Local'].dt.year
+state3['year'] = state3['Date Local'].dt.year
+state4['year'] = state4['Date Local'].dt.year
+fig, ax = plt.subplots(figsize=[10,4])
+state1.groupby(['year']).agg({'O3 AQI': 'mean'}).plot(lw=2,color='red', ax =ax,linewidth=2.5)
+state2.groupby(['year']).agg({'O3 AQI': 'mean'}).plot(lw=2,color='blue', ax =ax,linewidth=2.5)
+state3.groupby(['year']).agg({'O3 AQI': 'mean'}).plot(lw=2,color='orange',ax =ax,linewidth=2.5)
+state4.groupby(['year']).agg({'O3 AQI': 'mean'}).plot(lw=2,color='black', ax =ax,linewidth=2.5)
+ax.set_title('O3 AQI of Four States Over Time')
+ax.set(xlabel="year", ylabel="O3 AQI")
+ax.legend(['California','Colorado','Florida','New York'])
+plt.show()
+
+#SO2
+data3=data[['State','Date Local','SO2 AQI']]
+data3
+state1=data3[(data1.State=='California')]
+state2=data3[(data1.State=='Colorado')]
+state3=data3[(data1.State=='Florida')]
+state4=data3[(data1.State=='New York')]
+state1['year'] = state1['Date Local'].dt.year
+state2['year'] = state2['Date Local'].dt.year
+state3['year'] = state3['Date Local'].dt.year
+state4['year'] = state4['Date Local'].dt.year
+fig, ax = plt.subplots(figsize=[10,4])
+state1.groupby(['year']).agg({'SO2 AQI': 'mean'}).plot(lw=2,color='red', ax =ax,linewidth=2.5)
+state2.groupby(['year']).agg({'SO2 AQI': 'mean'}).plot(lw=2,color='blue', ax =ax,linewidth=2.5)
+state3.groupby(['year']).agg({'SO2 AQI': 'mean'}).plot(lw=2,color='orange',ax =ax,linewidth=2.5)
+state4.groupby(['year']).agg({'SO2 AQI': 'mean'}).plot(lw=2,color='black', ax =ax,linewidth=2.5)
+ax.set_title('SO2 AQI of Four States Over Time')
+ax.set(xlabel="year", ylabel="SO2 AQI")
+ax.legend(['California','Colorado','Florida','New York'])
+plt.show()
+
+#CO
+data4=data[['State','Date Local','CO AQI']]
+data4
+state1=data4[(data1.State=='California')]
+state2=data4[(data1.State=='Colorado')]
+state3=data4[(data1.State=='Florida')]
+state4=data4[(data1.State=='New York')]
+state1['year'] = state1['Date Local'].dt.year
+state2['year'] = state2['Date Local'].dt.year
+state3['year'] = state3['Date Local'].dt.year
+state4['year'] = state4['Date Local'].dt.year
+fig, ax = plt.subplots(figsize=[10,4])
+state1.groupby(['year']).agg({'CO AQI': 'mean'}).plot(lw=2,color='red', ax =ax,linewidth=2.5)
+state2.groupby(['year']).agg({'CO AQI': 'mean'}).plot(lw=2,color='blue', ax =ax,linewidth=2.5)
+state3.groupby(['year']).agg({'CO AQI': 'mean'}).plot(lw=2,color='orange',ax =ax,linewidth=2.5)
+state4.groupby(['year']).agg({'CO AQI': 'mean'}).plot(lw=2,color='black', ax =ax,linewidth=2.5)
+ax.set_title('CO AQI of Four States Over Time')
+ax.set(xlabel="year", ylabel="CO AQI")
+ax.legend(['California','Colorado','Florida','New York'])
+plt.show()
