@@ -9,7 +9,7 @@ This dataset deals with pollution in the U.S. Pollution in the U.S. has been wel
 Summary of the question(s) sought and the answers:</br>
 1. What is the main source that cause air pollution in the U.S.?
 2. What are the main pollutants in the U.S.?
-3. Colorado compares to other big states, the pollution is more serious or lighter?
+3. Colorado compares to other developed states, the pollution is more serious or lighter?
 
 
 Application of this knowledge:</br>
@@ -17,3 +17,4 @@ Application of this knowledge:</br>
 Link to the video demonstration:</br>
 
 Link to your final project paper:</br>
+https://github.com/Superczx/CSCI4502-datamining-project/blob/master/17_U.S.%20PollutionDatasetAnalysis_part3.pdf
