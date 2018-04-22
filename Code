@@ -131,10 +131,10 @@ plt.show()
 #O3
 data2=data[['State','Date Local','O3 AQI']]
 data2
-state1=data2[(data1.State=='California')]
-state2=data2[(data1.State=='Colorado')]
-state3=data2[(data1.State=='Florida')]
-state4=data2[(data1.State=='New York')]
+state1=data2[(data2.State=='California')]
+state2=data2[(data2.State=='Colorado')]
+state3=data2[(data2.State=='Florida')]
+state4=data2[(data2.State=='New York')]
 state1['year'] = state1['Date Local'].dt.year
 state2['year'] = state2['Date Local'].dt.year
 state3['year'] = state3['Date Local'].dt.year
@@ -152,10 +152,10 @@ plt.show()
 #SO2
 data3=data[['State','Date Local','SO2 AQI']]
 data3
-state1=data3[(data1.State=='California')]
-state2=data3[(data1.State=='Colorado')]
-state3=data3[(data1.State=='Florida')]
-state4=data3[(data1.State=='New York')]
+state1=data3[(data3.State=='California')]
+state2=data3[(data3.State=='Colorado')]
+state3=data3[(data3.State=='Florida')]
+state4=data3[(data3.State=='New York')]
 state1['year'] = state1['Date Local'].dt.year
 state2['year'] = state2['Date Local'].dt.year
 state3['year'] = state3['Date Local'].dt.year
@@ -173,10 +173,10 @@ plt.show()
 #CO
 data4=data[['State','Date Local','CO AQI']]
 data4
-state1=data4[(data1.State=='California')]
-state2=data4[(data1.State=='Colorado')]
-state3=data4[(data1.State=='Florida')]
-state4=data4[(data1.State=='New York')]
+state1=data4[(data4.State=='California')]
+state2=data4[(data4.State=='Colorado')]
+state3=data4[(data4.State=='Florida')]
+state4=data4[(data4.State=='New York')]
 state1['year'] = state1['Date Local'].dt.year
 state2['year'] = state2['Date Local'].dt.year
 state3['year'] = state3['Date Local'].dt.year
