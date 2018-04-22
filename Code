@@ -190,3 +190,34 @@ ax.set_title('CO AQI of Four States Over Time')
 ax.set(xlabel="year", ylabel="CO AQI")
 ax.legend(['California','Colorado','Florida','New York'])
 plt.show()
+
+
+
+
+
+
+data5=data[['State','NO2 AQI','O3 AQI','SO2 AQI','CO AQI']]
+data5
+
+data5[(data5.State=='Colorado')].hist(bins=20)
+plt.show
+
+
+
+
+
+
+data6=data[['State','NO2 AQI','O3 AQI','SO2 AQI','CO AQI']]
+data6
+state1=data6[(data6.State=='California')]
+state2=data6[(data6.State=='Colorado')]
+state3=data6[(data6.State=='Florida')]
+state4=data6[(data6.State=='New York')]
+total=state1.append(state2).append(state3).append(state4)
+
+total.groupby (['State']).agg({'NO2 AQI': 'mean',
+                          'O3 AQI': 'mean',
+                          'SO2 AQI': 'mean',
+                          'CO AQI': 'mean'})\
+.plot.bar()
+plt.show
