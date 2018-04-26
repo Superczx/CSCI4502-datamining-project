@@ -221,3 +221,41 @@ total.groupby (['State']).agg({'NO2 AQI': 'mean',
                           'CO AQI': 'mean'})\
 .plot.bar()
 plt.show
+
+
+
+
+
+
+
+
+
+
+#get max value of each row
+NO2mean=data[['State','Date Local','NO2 Mean']]
+NO21max=data[['State','Date Local','NO2 1st Max Value']]
+NO2aqi=data[['State','Date Local','NO2 AQI']]
+print(NO2mean.iloc[NO2mean['NO2 Mean'].idxmax()])
+print(NO21max.iloc[NO21max['NO2 1st Max Value'].idxmax()])
+print(NO2aqi.iloc[NO2aqi['NO2 AQI'].idxmax()])
+
+O3mean=data[['State','Date Local','O3 Mean']]
+O31max=data[['State','Date Local','O3 1st Max Value']]
+O3aqi=data[['State','Date Local','O3 AQI']]
+print(O3mean.iloc[O3mean['O3 Mean'].idxmax()])
+print(O31max.iloc[O31max['O3 1st Max Value'].idxmax()])
+print(O3aqi.iloc[O3aqi['O3 AQI'].idxmax()])
+
+SO2mean=data[['State','Date Local','SO2 Mean']]
+SO21max=data[['State','Date Local','SO2 1st Max Value']]
+SO2aqi=data[['State','Date Local','SO2 AQI']]
+print(SO2mean.iloc[SO2mean['SO2 Mean'].idxmax()])
+print(SO21max.iloc[SO21max['SO2 1st Max Value'].idxmax()])
+print(SO2aqi.iloc[SO2aqi['SO2 AQI'].idxmax()])
+
+COmean=data[['State','Date Local','CO Mean']]
+CO1max=data[['State','Date Local','CO 1st Max Value']]
+COaqi=data[['State','Date Local','CO AQI']]
+print(COmean.iloc[COmean['CO Mean'].idxmax()])
+print(CO1max.iloc[CO1max['CO 1st Max Value'].idxmax()])
+print(COaqi.iloc[COaqi['CO AQI'].idxmax()])
