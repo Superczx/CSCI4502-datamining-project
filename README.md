@@ -8,8 +8,12 @@ This dataset deals with pollution in the U.S. Pollution in the U.S. has been wel
 
 Summary of the question(s) sought and the answers:</br>
 1. What is the main source that cause air pollution in the U.S.?
+Answer:
 2. What are the main pollutants in the U.S.?
-3. Colorado compares to other developed states, the pollution is more serious or lighter?
+Answer:Nitrogen Dioxide(NO3), Sulphur Dioxide(SO2), Carbon Monoxide(CO) and Ozone(O3).
+3. Colorado compares to other developed states(New York, Florida, and California), the pollution is more serious or lighter?
+Answer:According to the graph of main pollutants AQI(air quality index), we discovered Colorado has more serious pollution than other developed states(New York, Florida, and California).
+4.
 
 
 Application of this knowledge:</br>
