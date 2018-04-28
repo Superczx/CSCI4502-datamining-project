@@ -1,18 +1,21 @@
-# CSCI4502-datamining-project: US pollution dataset analysis
+# CSCI4502-datamining-project: U.S. Pollution Dataset Analysis
 Project Title: US Pollution Dataset Analysis.</br>
 
 Team Members: Peng Yan, Zhixing Chang, Tianlun Zhao, Xiaoyang Dou </br>
 
 Description of the project:</br>
-This dataset deals with pollution in the U.S. Pollution in the U.S. has been well documented by the U.S. This data include a total of 28 fields, four major pollutants (Nitrogen Dioxide, Sulphur Dioxide, Carbon Monoxide and Ozone) for every day from 2000 - 2016. </br>
+With rapid economic development, people start to pay more attention to health issues. Our team is very interested in environmental pollution. This dataset deals with pollution in the U.S. Pollution in the U.S. has been well documented by the U.S. This data include a total of 28 fields, four major pollutants (Nitrogen Dioxide, Sulphur Dioxide, Carbon Monoxide and Ozone) for every day from 2000 - 2016. </br>
 
 Summary of the question(s) sought and the answers:</br>
 1. What is the main source that cause air pollution in the U.S.?</br>
-Answer:
+Answer: NO2
 2. What are the main pollutants in the U.S.?</br>
-Answer:Nitrogen Dioxide(NO3), Sulphur Dioxide(SO2), Carbon Monoxide(CO) and Ozone(O3).
+Answer: Nitrogen Dioxide(NO2), Sulphur Dioxide(SO2), Carbon Monoxide(CO) and Ozone(O3).
 3. Colorado compares to other developed states(New York, Florida, and California), the pollution is more serious or lighter?</br>
-Answer:According to the plot of main pollutants AQI(air quality index), we discovered Colorado has more serious pollution than other developed states(New York, Florida, and California).
+Answer: According to the plot of main pollutants AQI(air quality index), we discovered Colorado has more serious pollution than other developed states(New York, Florida, and California).
+4. What causes the increase or decrease of pollutants？</br>
+Answer: 
+5. 
 
 
 Application of this knowledge:</br>
