@@ -259,3 +259,85 @@ COaqi=data[['State','Date Local','CO AQI']]
 print(COmean.iloc[COmean['CO Mean'].idxmax()])
 print(CO1max.iloc[CO1max['CO 1st Max Value'].idxmax()])
 print(COaqi.iloc[COaqi['CO AQI'].idxmax()])
+
+
+
+
+
+#min 
+NO2meanmin=data[['State','Date Local','NO2 Mean']]
+NO2meanmin=NO2meanmin[~(NO2meanmin==0).any(axis=1)]
+NO2aqimin=data[['State','Date Local','NO2 AQI']]
+NO2aqimin=NO2aqimin[~(NO2aqimin==0).any(axis=1)]
+print(NO2meanmin.iloc[NO2meanmin['NO2 Mean'].idxmin()])
+
+print(NO2aqimin.iloc[NO2aqimin['NO2 AQI'].idxmin()])
+
+O3meanmin=data[['State','Date Local','O3 Mean']]
+O3meanmin=O3meanmin[~(O3meanmin==0).any(axis=1)]
+O3aqimin=data[['State','Date Local','O3 AQI']]
+O3aqimin=O3aqimin[~(O3aqimin==0).any(axis=1)]
+print(O3meanmin.iloc[O3meanmin['O3 Mean'].idxmin()])
+print(O3aqimin.iloc[O3aqimin['O3 AQI'].idxmin()])
+
+
+SO2meanmin=data[['State','Date Local','SO2 Mean']]
+SO2meanmin=SO2meanmin[~(SO2meanmin==0).any(axis=1)]
+SO2aqimin=data[['State','Date Local','SO2 AQI']]
+SO2aqimin=SO2aqimin[~(SO2aqimin==0).any(axis=1)]
+SO2aqiminfinal=SO2aqimin.dropna()
+
+
+
+SO2aqiminfinal
+print(SO2meanmin.iloc[SO2meanmin['SO2 Mean'].idxmin()])
+print(SO2aqimin.iloc[SO2aqimin['SO2 AQI'].idxmin()])
+
+
+COmeanmin=data[['State','Date Local','CO Mean']]
+COmeanmin=COmeanmin[~(COmeanmin==0).any(axis=1)]
+COaqimin=data[['State','Date Local','CO AQI']]
+COaqimin=COaqimin[~(COaqimin==0).any(axis=1)]
+print(COmeanmin.iloc[COmeanmin['CO Mean'].idxmin()])
+print(COaqimin.iloc[COaqimin['CO AQI'].idxmin()])
+
+
+Nmeanmax=max(NO2mean['NO2 Mean'])
+Naqimax=max(NO2aqi['NO2 AQI'])
+Omeanmax=max(O3mean['O3 Mean'])
+Oaqimax=max(O3aqi['O3 AQI'])
+Smeanmax=max(SO2mean['SO2 Mean'])
+Saqimax=max(SO2aqi['SO2 AQI'])
+Cmeanmax=max(COmean['CO Mean'])
+Caqimax=max(COaqi['CO AQI'])
+
+
+Nmeanmin=min(NO2meanmin['NO2 Mean'])
+Naqimin=min(NO2aqimin['NO2 AQI'])
+Omeanmin=min(O3meanmin['O3 Mean'])
+Oaqimin=min(O3aqimin['O3 AQI'])
+Smeanmin=min(SO2meanmin['SO2 Mean'])
+Saqimin=min(SO2aqimin['SO2 AQI'])
+Cmeanmin=min(COmeanmin['CO Mean'])
+Caqimin=min(COaqimin['CO AQI'])
+
+#min_max normalization
+# change x value to the value we want to calculate
+x=0
+NO2meanminmax=(x-Nmeanmin)/(Nmeanmax-Nmeanmin)
+NO2aqiminmax=(x-Naqimin)/(Naqimax-Naqimin)
+O3meanminmax=(x-Omeanmin)/(Omeanmax-Omeanmin)
+O3aqiminmax=(x-Oaqimin)/(Oaqimax-Oaqimin)
+SO2meanminmax=(x-Smeanmin)/(Smeanmax-Smeanmin)
+SO2aqiminmax=(x-Saqimin)/(Saqimax-Saqimin)
+COmeanminmax=(x-Cmeanmin)/(Cmeanmax-Cmeanmin)
+COaqiminmax=(x-Caqimin)/(Caqimax-Caqimin)
+#delete the '#' mark of the result we want
+# NO2meanminmax
+# NO2aqiminmax
+# O3meanminmax
+# O3aqiminmax
+# SO2meanminmax
+# SO2aqiminmax
+# COmeanminmax
+# COaqiminmax
