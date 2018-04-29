@@ -5,7 +5,7 @@ Team Members: Peng Yan, Zhixing Chang, Tianlun Zhao, Xiaoyang Dou </br>
 
 Description of the project:</br>
 
-With rapid economic development, people start to pay more attention to health issues. Our team is very interested in environmental pollution. This dataset deals with pollution in the U.S. Pollution in the U.S. has been well documented by the U.S. This data include a total of 28 fields, four major pollutants (Nitrogen Dioxide, Sulphur Dioxide, Carbon Monoxide and Ozone) for every day from 2000 - 2016. </br>
+With rapid economic development, people start to pay more attention to health issues. Our team is very interested in environmental pollution. This dataset deals with pollution in the United States. The pollution situation in the United States has been fully confirmed. This data include a total of 28 fields, four major pollutants (Nitrogen Dioxide, Sulphur Dioxide, Carbon Monoxide and Ozone) for every day from 2000 - 2016. </br>
 
 Summary of the question(s) sought and the answers:</br>
 1. What is the main source that cause air pollution in the U.S.?</br>
