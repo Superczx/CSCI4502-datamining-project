@@ -8,18 +8,19 @@ With rapid economic development, people start to pay more attention to health is
 
 Summary of the question(s) sought and the answers:</br>
 1. What is the main source that cause air pollution in the U.S.?</br>
-Answer: NO2 and O3
+Answer: NO2
 2. What are the main pollutants in the U.S.?</br>
 Answer: Nitrogen Dioxide(NO2), Sulphur Dioxide(SO2), Carbon Monoxide(CO) and Ozone(O3).
 3. Colorado compares to other developed states(New York, Florida, and California), the pollution is more serious or lighter?</br>
 Answer: According to the plot of main pollutants AQI(air quality index), we discovered Colorado has more serious pollution than other developed states(New York, Florida, and California).
 4. What causes the increase or decrease of pollutants？</br>
 Answer: 
-5. 
 
 
 Application of this knowledge:</br>
 Through our team's plot and analysis, people will be aware of the seriousness of environmental pollution and its impact on people's lives. In addition, People will pay attention to control the main pollutants(CO, SO2, O3, NO2) and call on the government and people to work out an effective plan to reduce main pollutants. 
+1.we did on AQI of different pollutant from different stares help us with future air condition detection.
+2.we can make good use of regions and cities with high O3 AQI values to achieve O3 reuse, turning pollutants into important resources for improving environmental pollution.
 
 Link to the video demonstration:</br>
 
