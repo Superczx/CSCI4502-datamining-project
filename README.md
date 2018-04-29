@@ -4,6 +4,7 @@ Project Title: US Pollution Dataset Analysis.</br>
 Team Members: Peng Yan, Zhixing Chang, Tianlun Zhao, Xiaoyang Dou </br>
 
 Description of the project:</br>
+
 With rapid economic development, people start to pay more attention to health issues. Our team is very interested in environmental pollution. This dataset deals with pollution in the U.S. Pollution in the U.S. has been well documented by the U.S. This data include a total of 28 fields, four major pollutants (Nitrogen Dioxide, Sulphur Dioxide, Carbon Monoxide and Ozone) for every day from 2000 - 2016. </br>
 
 Summary of the question(s) sought and the answers:</br>
@@ -22,6 +23,7 @@ We can control air pollution through the following methods, Use public mode of t
 
 
 Application of this knowledge:</br>
+
 Through our team's plot and analysis, people will be aware of the seriousness of environmental pollution and its impact on people's lives. In addition, People will pay attention to control the main pollutants(CO, SO2, O3, NO2) and call on the government and people to work out an effective plan to reduce main pollutants. </br>
 1. We did on AQI of different pollutant from different stares help us with future air condition detection.</br>
 2. We can make good use of regions and cities with high O3 AQI values to achieve O3 reuse, turning pollutants into important resources for improving environmental pollution.</br>
