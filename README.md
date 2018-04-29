@@ -14,7 +14,7 @@ Answer: Nitrogen Dioxide(NO2), Sulphur Dioxide(SO2), Carbon Monoxide(CO) and Ozo
 3. Colorado compares to other developed states(New York, Florida, and California), the pollution is more serious or lighter?</br>
 Answer: According to the plot of main pollutants AQI(air quality index), we discovered Colorado has more serious pollution than other developed states(New York, Florida, and California).
 4. What causes the increase or decrease of pollutants？</br>
-Answer: 
+Answer: There are some aspects for pollutants increasing, burning of fossil fuels, agricultural activities,exhaust from factories and industries, mining operations, indoor air pollution, and population growth.
 
 
 Application of this knowledge:</br>
