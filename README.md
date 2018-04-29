@@ -11,6 +11,8 @@ Summary of the question(s) sought and the answers:</br>
 Answer: NO2
 2. What are the main pollutants in the U.S.?</br>
 Answer: Nitrogen Dioxide(NO2), Sulphur Dioxide(SO2), Carbon Monoxide(CO) and Ozone(O3).
+2. Does the overall level of environmental pollution in the United States show an upward trend or a downward trend?</br>
+Answer: Downward trend.
 3. Colorado compares to other developed states(New York, Florida, and California), the pollution is more serious or lighter?</br>
 Answer: According to the plot of main pollutants AQI(air quality index), we discovered Colorado has more serious pollution than other developed states(New York, Florida, and California).
 4. What causes the increase or decrease of pollutants？</br>
