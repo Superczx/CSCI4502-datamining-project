@@ -8,7 +8,7 @@ With rapid economic development, people start to pay more attention to health is
 
 Summary of the question(s) sought and the answers:</br>
 1. What is the main source that cause air pollution in the U.S.?</br>
-Answer: NO2
+Answer: NO2 and O3
 2. What are the main pollutants in the U.S.?</br>
 Answer: Nitrogen Dioxide(NO2), Sulphur Dioxide(SO2), Carbon Monoxide(CO) and Ozone(O3).
 3. Colorado compares to other developed states(New York, Florida, and California), the pollution is more serious or lighter?</br>
