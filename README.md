@@ -8,9 +8,8 @@ Description of the project:</br>
 With rapid economic development, people start to pay more attention to health issues. Our team is very interested in environmental pollution. This dataset deals with pollution in the United States. The pollution situation in the United States has been fully confirmed. This data include a total of 28 fields, four major pollutants (Nitrogen Dioxide, Sulphur Dioxide, Carbon Monoxide and Ozone) for every day from 2000 - 2016. </br>
 
 Summary of the question(s) sought and the answers:</br>
-1. What is the main source that cause air pollution in the U.S.?</br>
-Answer: NO2
-2. What are the main pollutants in the U.S.?</br>
+
+1. What are the main pollutants in the U.S.?</br>
 Answer: Nitrogen Dioxide(NO2), Sulphur Dioxide(SO2), Carbon Monoxide(CO) and Ozone(O3).
 2. Does the overall level of environmental pollution in the United States show an upward trend or a downward trend?</br>
 Answer: Downward trend.
