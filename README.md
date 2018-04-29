@@ -18,8 +18,8 @@ Answer: There are some aspects for pollutants increasing, burning of fossil fuel
 
 
 Application of this knowledge:</br>
-Through our team's plot and analysis, people will be aware of the seriousness of environmental pollution and its impact on people's lives. In addition, People will pay attention to control the main pollutants(CO, SO2, O3, NO2) and call on the government and people to work out an effective plan to reduce main pollutants. 
-1.we did on AQI of different pollutant from different stares help us with future air condition detection.
+Through our team's plot and analysis, people will be aware of the seriousness of environmental pollution and its impact on people's lives. In addition, People will pay attention to control the main pollutants(CO, SO2, O3, NO2) and call on the government and people to work out an effective plan to reduce main pollutants. </br>
+1.we did on AQI of different pollutant from different stares help us with future air condition detection.</br>
 2.we can make good use of regions and cities with high O3 AQI values to achieve O3 reuse, turning pollutants into important resources for improving environmental pollution.
 
 Link to the video demonstration:</br>
