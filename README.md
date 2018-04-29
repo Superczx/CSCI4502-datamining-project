@@ -25,7 +25,7 @@ We can control air pollution through the following methods, Use public mode of t
 Application of this knowledge:</br>
 
 Through our team's plot and analysis, people will be aware of the seriousness of environmental pollution and its impact on people's lives. In addition, People will pay attention to control the main pollutants(CO, SO2, O3, NO2) and call on the government and people to work out an effective plan to reduce main pollutants. </br>
-1. We did on AQI of different pollutant from different stares help us with future air condition detection.</br>
+1. We did on AQI of different pollutant from different states help us with future air condition detection.</br>
 2. We can make good use of regions and cities with high O3 AQI values to achieve O3 reuse, turning pollutants into important resources for improving environmental pollution.</br>
 3. Our data analysis could help people plan activities and routes around current air quality conditions.
 
