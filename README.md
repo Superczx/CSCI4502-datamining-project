@@ -10,7 +10,7 @@ With rapid economic development, people start to pay more attention to health is
 Summary of the question(s) sought and the answers:</br>
 
 1. What are the main pollutants in the U.S.?</br>
-Answer: Nitrogen Dioxide(NO2), Sulphur Dioxide(SO2), Carbon Monoxide(CO) and Ozone(O3).
+Answer: Nitrogen Dioxide(NO2), Sulfur Dioxide(SO2), Carbon Monoxide(CO) and Ozone(O3).
 2. Does the overall level of environmental pollution in the United States show an upward trend or a downward trend?</br>
 Answer: Downward trend.
 3. Colorado compares to other developed states(New York, Florida, and California), the pollution is more serious or lighter?</br>
@@ -33,3 +33,5 @@ Link to the video demonstration:</br>
 
 Link to your final project paper:</br>
 https://github.com/Superczx/CSCI4502-datamining-project/blob/master/17_U.S.%20PollutionDatasetAnalysis_part3.pdf
+Link to the visualization:</br>
+https://www.screencast.com/t/qbGOfZSv
