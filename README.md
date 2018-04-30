@@ -29,8 +29,7 @@ Through our team's plot and analysis, people will be aware of the seriousness of
 3. Our data analysis could help people plan activities and routes around current air quality conditions.
 
 Link to the video demonstration:</br>
-
-
+https://www.screencast.com/t/3nORflZ4w
 Link to your final project paper:</br>
 https://github.com/Superczx/CSCI4502-datamining-project/blob/master/17_U.S.%20PollutionDatasetAnalysis_part3.pdf
 <br>Link to the visualization:</br>
