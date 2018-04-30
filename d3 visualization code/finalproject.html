@@ -1,0 +1,634 @@
+    <html>
+
+<head>
+    <title>Project 2</title>
+    <link rel="stylesheet" type="text/css" href="finalproject.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+    <div id="partOne">
+        <h1>Part One: </h1>
+    </div>
+
+    <script type="text/javascript">
+        d3.csv("data/Colorado pollution.csv", function(error, data) {
+            console.log(data);
+
+            if (error) throw error;
+
+            // First, we will create some constants to define non-data-related parts of the visualization
+
+             var w = 700; // Width of our visualization
+            var h = 500; // Height of our visualization
+            var xOffset = 40; // Space for x-axis labels
+            var yOffset = 100; // Space for y-axis labels
+            var margin = 10; // Margin around visualization
+            var vals = ['Date Local', 'NO2 AQI']; // List of data attributes
+            var xVal = vals[0]; // Value to plot on x-axis
+            var yVal = vals[1]; // Value to plot on y-axis
+           
+
+
+            // set the dimensions and margins of the graph
+            var margin = {
+                top: 20,
+                right: 20,
+                bottom: 30,
+                left: 50
+            };
+            var width = 960 - margin.left - margin.right;
+            var height = 500 - margin.top - margin.bottom;
+
+            // set the ranges
+            var x = d3.scaleLinear().range([0, width]);
+            var y = d3.scaleLinear().range([height, 0]);
+
+                 var valueline1 = d3.line()
+                                   .x(function(d) {return x(d[xVal]);})
+                                   .y(function(d) {return y(d[yVal]);});
+
+            // append the svg obgect to the body of the page
+            // appends a 'group' element to 'svg'
+            // moves the 'group' element to the top left margin
+            var svg = d3.select("#partOne").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+            x.domain([d3.min(data, function(d) {
+                    return parseFloat(d[xVal]);
+                }) - 2,
+                d3.max(data, function(d) {
+                    return parseFloat(d[xVal]);
+                })
+            ]);
+
+            y.domain([0,
+                d3.max(data, function(d) {
+                    return parseFloat(d[yVal]);
+                })
+            ]);
+
+            //x.domain(0,d3.max(data, function(d) { return parseFloat(d[xVal]); }));
+            //y.domain(0,d3.max(data, function(d) { return parseFloat(d[yVal]); }));
+//NO2
+            svg.append("path")
+                      .data([data])
+                      .attr("fill", "none")
+                      .attr("stroke", "steelblue")
+                      .attr("stroke-linejoin", "round")
+                      .attr("stroke-linecap", "round")
+                      .attr("stroke-width", 1.5)
+                      .attr("d", valueline1(data));
+            
+
+            // Add the scatterplot points
+            
+            svg.selectAll("circle")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("r", 5)
+                .attr("cx", function(d) {
+                    return x(d[xVal]);
+                })
+                .attr("cy", function(d) {
+                    return y(d[yVal]);
+                })
+
+                .style('fill', 'red')
+                //                .transition()
+                //                .duration(500)
+                
+                .on('mouseover', function() {
+                    var cir = d3.select(this);
+                    cir.style('fill', 'green')
+                        .transition()
+                        .attr('r', 15)
+                    cir.append('svg:title') //tooltip
+                        .text(function(d) {
+                            return "X: " + d['Date Local'] + " " + "Y: " + d['NO2 AQI'];
+                        });
+                })
+                .on('mouseout', function() {
+                    var cir = d3.select(this);
+                    cir.transition()
+                        .duration(500)
+                        .style("fill", "red")
+                        .attr('r', 5)
+                    d3.select("#eText").remove();
+                });
+
+
+
+
+            
+            
+            
+            // Add the X Axis
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+            // Add the Y Axis
+            svg.append("g")
+                //.attr("transform","translate(0," + height+")")
+                .call(d3.axisLeft(y));
+
+            //Add text labels
+            //            var xLabel = svg.append("text")
+            //                .attr("class", "label")
+            //                .text(xVal)
+            //                .attr("Enroll, Female: Avg. ACT Math Score (Enrl F)", width - 50);
+            //
+            //            var yLabel = svg.append("text")
+            //                .attr("class", "label")
+            //                .text(yVal)
+            //                .attr("transform", "rotate(90)")
+            //                .attr("text-anchor", "start")
+            //                .attr("Enroll, Male: Avg. ACT Math Score (Enrl M)", height - 40);
+            var xLabel = svg.append("text")
+                .attr("class", "label")
+                .text(xVal)
+                .attr("x", width - 50)
+                .attr("y", height - 20);
+
+            var yLabel = svg.append("text")
+                .attr("class", "label")
+                .text(yVal)
+                //                .attr("transform", "rotate(90)")
+                .attr("text-anchor", "start")
+                .attr("x", width - 850);
+ });
+    </script>
+
+
+    <script type="text/javascript">
+        d3.csv("data/Colorado pollution.csv", function(error, data) {
+            console.log(data);
+
+            if (error) throw error;
+
+            // First, we will create some constants to define non-data-related parts of the visualization
+
+             var w = 700; // Width of our visualization
+            var h = 500; // Height of our visualization
+            var xOffset = 40; // Space for x-axis labels
+            var yOffset = 100; // Space for y-axis labels
+            var margin = 10; // Margin around visualization
+            var vals = ['Date Local', 'O3 AQI']; // List of data attributes
+            var xVal = vals[0]; // Value to plot on x-axis
+            var yVal = vals[1]; // Value to plot on y-axis
+           
+
+
+            // set the dimensions and margins of the graph
+            var margin = {
+                top: 20,
+                right: 20,
+                bottom: 30,
+                left: 50
+            };
+            var width = 960 - margin.left - margin.right;
+            var height = 500 - margin.top - margin.bottom;
+
+            // set the ranges
+            var x = d3.scaleLinear().range([0, width]);
+            var y = d3.scaleLinear().range([height, 0]);
+
+                 var valueline1 = d3.line()
+                                   .x(function(d) {return x(d[xVal]);})
+                                   .y(function(d) {return y(d[yVal]);});
+
+            // append the svg obgect to the body of the page
+            // appends a 'group' element to 'svg'
+            // moves the 'group' element to the top left margin
+            var svg = d3.select("#partOne").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+            x.domain([d3.min(data, function(d) {
+                    return parseFloat(d[xVal]);
+                }) - 2,
+                d3.max(data, function(d) {
+                    return parseFloat(d[xVal]);
+                })
+            ]);
+
+            y.domain([0,
+                d3.max(data, function(d) {
+                    return parseFloat(d[yVal]);
+                })
+            ]);
+
+            //x.domain(0,d3.max(data, function(d) { return parseFloat(d[xVal]); }));
+            //y.domain(0,d3.max(data, function(d) { return parseFloat(d[yVal]); }));
+//NO2
+            svg.append("path")
+                      .data([data])
+                      .attr("fill", "none")
+                      .attr("stroke", "steelblue")
+                      .attr("stroke-linejoin", "round")
+                      .attr("stroke-linecap", "round")
+                      .attr("stroke-width", 1.5)
+                      .attr("d", valueline1(data));
+            
+
+            // Add the scatterplot points
+            
+            svg.selectAll("circle")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("r", 5)
+                .attr("cx", function(d) {
+                    return x(d[xVal]);
+                })
+                .attr("cy", function(d) {
+                    return y(d[yVal]);
+                })
+
+                .style('fill', 'red')
+                //                .transition()
+                //                .duration(500)
+                
+                .on('mouseover', function() {
+                    var cir = d3.select(this);
+                    cir.style('fill', 'green')
+                        .transition()
+                        .attr('r', 15)
+                    cir.append('svg:title') //tooltip
+                        .text(function(d) {
+                            return "X: " + d['Date Local'] + " " + "Y: " + d['O3 AQI'];
+                        });
+                })
+                .on('mouseout', function() {
+                    var cir = d3.select(this);
+                    cir.transition()
+                        .duration(500)
+                        .style("fill", "red")
+                        .attr('r', 5)
+                    d3.select("#eText").remove();
+                });
+
+
+
+
+            
+            
+            
+            // Add the X Axis
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+            // Add the Y Axis
+            svg.append("g")
+                //.attr("transform","translate(0," + height+")")
+                .call(d3.axisLeft(y));
+
+            //Add text labels
+            //            var xLabel = svg.append("text")
+            //                .attr("class", "label")
+            //                .text(xVal)
+            //                .attr("Enroll, Female: Avg. ACT Math Score (Enrl F)", width - 50);
+            //
+            //            var yLabel = svg.append("text")
+            //                .attr("class", "label")
+            //                .text(yVal)
+            //                .attr("transform", "rotate(90)")
+            //                .attr("text-anchor", "start")
+            //                .attr("Enroll, Male: Avg. ACT Math Score (Enrl M)", height - 40);
+            var xLabel = svg.append("text")
+                .attr("class", "label")
+                .text(xVal)
+                .attr("x", width - 50)
+                .attr("y", height - 20);
+
+            var yLabel = svg.append("text")
+                .attr("class", "label")
+                .text(yVal)
+                //                .attr("transform", "rotate(90)")
+                .attr("text-anchor", "start")
+                .attr("x", width - 850);
+ });
+    </script>
+
+
+
+    <script type="text/javascript">
+        d3.csv("data/Colorado pollution.csv", function(error, data) {
+            console.log(data);
+
+            if (error) throw error;
+
+            // First, we will create some constants to define non-data-related parts of the visualization
+
+             var w = 700; // Width of our visualization
+            var h = 500; // Height of our visualization
+            var xOffset = 40; // Space for x-axis labels
+            var yOffset = 100; // Space for y-axis labels
+            var margin = 10; // Margin around visualization
+            var vals = ['Date Local','SO2 AQI']; // List of data attributes
+            var xVal = vals[0]; // Value to plot on x-axis
+            var yVal = vals[1]; // Value to plot on y-axis
+           
+
+
+            // set the dimensions and margins of the graph
+            var margin = {
+                top: 20,
+                right: 20,
+                bottom: 30,
+                left: 50
+            };
+            var width = 960 - margin.left - margin.right;
+            var height = 500 - margin.top - margin.bottom;
+
+            // set the ranges
+            var x = d3.scaleLinear().range([0, width]);
+            var y = d3.scaleLinear().range([height, 0]);
+
+                 var valueline1 = d3.line()
+                                   .x(function(d) {return x(d[xVal]);})
+                                   .y(function(d) {return y(d[yVal]);});
+
+            // append the svg obgect to the body of the page
+            // appends a 'group' element to 'svg'
+            // moves the 'group' element to the top left margin
+            var svg = d3.select("#partOne").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+            x.domain([d3.min(data, function(d) {
+                    return parseFloat(d[xVal]);
+                }) - 2,
+                d3.max(data, function(d) {
+                    return parseFloat(d[xVal]);
+                })
+            ]);
+
+            y.domain([0,
+                d3.max(data, function(d) {
+                    return parseFloat(d[yVal]);
+                })
+            ]);
+
+            //x.domain(0,d3.max(data, function(d) { return parseFloat(d[xVal]); }));
+            //y.domain(0,d3.max(data, function(d) { return parseFloat(d[yVal]); }));
+//NO2
+            svg.append("path")
+                      .data([data])
+                      .attr("fill", "none")
+                      .attr("stroke", "steelblue")
+                      .attr("stroke-linejoin", "round")
+                      .attr("stroke-linecap", "round")
+                      .attr("stroke-width", 1.5)
+                      .attr("d", valueline1(data));
+            
+
+            // Add the scatterplot points
+            
+            svg.selectAll("circle")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("r", 5)
+                .attr("cx", function(d) {
+                    return x(d[xVal]);
+                })
+                .attr("cy", function(d) {
+                    return y(d[yVal]);
+                })
+
+                .style('fill', 'red')
+                //                .transition()
+                //                .duration(500)
+                
+                .on('mouseover', function() {
+                    var cir = d3.select(this);
+                    cir.style('fill', 'green')
+                        .transition()
+                        .attr('r', 15)
+                    cir.append('svg:title') //tooltip
+                        .text(function(d) {
+                            return "X: " + d['Date Local'] + " " + "Y: " + d['SO2 AQI'];
+                        });
+                })
+                .on('mouseout', function() {
+                    var cir = d3.select(this);
+                    cir.transition()
+                        .duration(500)
+                        .style("fill", "red")
+                        .attr('r', 5)
+                    d3.select("#eText").remove();
+                });
+
+
+
+
+            
+            
+            
+            // Add the X Axis
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+            // Add the Y Axis
+            svg.append("g")
+                //.attr("transform","translate(0," + height+")")
+                .call(d3.axisLeft(y));
+
+            //Add text labels
+            //            var xLabel = svg.append("text")
+            //                .attr("class", "label")
+            //                .text(xVal)
+            //                .attr("Enroll, Female: Avg. ACT Math Score (Enrl F)", width - 50);
+            //
+            //            var yLabel = svg.append("text")
+            //                .attr("class", "label")
+            //                .text(yVal)
+            //                .attr("transform", "rotate(90)")
+            //                .attr("text-anchor", "start")
+            //                .attr("Enroll, Male: Avg. ACT Math Score (Enrl M)", height - 40);
+            var xLabel = svg.append("text")
+                .attr("class", "label")
+                .text(xVal)
+                .attr("x", width - 50)
+                .attr("y", height - 20);
+
+            var yLabel = svg.append("text")
+                .attr("class", "label")
+                .text(yVal)
+                //                .attr("transform", "rotate(90)")
+                .attr("text-anchor", "start")
+                .attr("x", width - 850);
+ });
+    </script>
+        <script type="text/javascript">
+        d3.csv("data/Colorado pollution.csv", function(error, data) {
+            console.log(data);
+
+            if (error) throw error;
+
+            // First, we will create some constants to define non-data-related parts of the visualization
+
+             var w = 700; // Width of our visualization
+            var h = 500; // Height of our visualization
+            var xOffset = 40; // Space for x-axis labels
+            var yOffset = 100; // Space for y-axis labels
+            var margin = 10; // Margin around visualization
+            var vals = ['Date Local', 'CO AQI']; // List of data attributes
+            var xVal = vals[0]; // Value to plot on x-axis
+            var yVal = vals[1]; // Value to plot on y-axis
+           
+
+
+            // set the dimensions and margins of the graph
+            var margin = {
+                top: 20,
+                right: 20,
+                bottom: 30,
+                left: 50
+            };
+            var width = 960 - margin.left - margin.right;
+            var height = 500 - margin.top - margin.bottom;
+
+            // set the ranges
+            var x = d3.scaleLinear().range([0, width]);
+            var y = d3.scaleLinear().range([height, 0]);
+
+                 var valueline1 = d3.line()
+                                   .x(function(d) {return x(d[xVal]);})
+                                   .y(function(d) {return y(d[yVal]);});
+
+            // append the svg obgect to the body of the page
+            // appends a 'group' element to 'svg'
+            // moves the 'group' element to the top left margin
+            var svg = d3.select("#partOne").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+            x.domain([d3.min(data, function(d) {
+                    return parseFloat(d[xVal]);
+                }) - 2,
+                d3.max(data, function(d) {
+                    return parseFloat(d[xVal]);
+                })
+            ]);
+
+            y.domain([0,
+                d3.max(data, function(d) {
+                    return parseFloat(d[yVal]);
+                })
+            ]);
+
+            //x.domain(0,d3.max(data, function(d) { return parseFloat(d[xVal]); }));
+            //y.domain(0,d3.max(data, function(d) { return parseFloat(d[yVal]); }));
+//NO2
+            svg.append("path")
+                      .data([data])
+                      .attr("fill", "none")
+                      .attr("stroke", "steelblue")
+                      .attr("stroke-linejoin", "round")
+                      .attr("stroke-linecap", "round")
+                      .attr("stroke-width", 1.5)
+                      .attr("d", valueline1(data));
+            
+
+            // Add the scatterplot points
+            
+            svg.selectAll("circle")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("r", 5)
+                .attr("cx", function(d) {
+                    return x(d[xVal]);
+                })
+                .attr("cy", function(d) {
+                    return y(d[yVal]);
+                })
+
+                .style('fill', 'red')
+                //                .transition()
+                //                .duration(500)
+                
+                .on('mouseover', function() {
+                    var cir = d3.select(this);
+                    cir.style('fill', 'green')
+                        .transition()
+                        .attr('r', 15)
+                    cir.append('svg:title') //tooltip
+                        .text(function(d) {
+                            return "X: " + d['Date Local'] + " " + "Y: " + d['CO AQI'];
+                        });
+                })
+                .on('mouseout', function() {
+                    var cir = d3.select(this);
+                    cir.transition()
+                        .duration(500)
+                        .style("fill", "red")
+                        .attr('r', 5)
+                    d3.select("#eText").remove();
+                });
+
+
+
+
+            
+            
+            
+            // Add the X Axis
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+            // Add the Y Axis
+            svg.append("g")
+                //.attr("transform","translate(0," + height+")")
+                .call(d3.axisLeft(y));
+
+            //Add text labels
+            //            var xLabel = svg.append("text")
+            //                .attr("class", "label")
+            //                .text(xVal)
+            //                .attr("Enroll, Female: Avg. ACT Math Score (Enrl F)", width - 50);
+            //
+            //            var yLabel = svg.append("text")
+            //                .attr("class", "label")
+            //                .text(yVal)
+            //                .attr("transform", "rotate(90)")
+            //                .attr("text-anchor", "start")
+            //                .attr("Enroll, Male: Avg. ACT Math Score (Enrl M)", height - 40);
+            var xLabel = svg.append("text")
+                .attr("class", "label")
+                .text(xVal)
+                .attr("x", width - 50)
+                .attr("y", height - 20);
+
+            var yLabel = svg.append("text")
+                .attr("class", "label")
+                .text(yVal)
+                //                .attr("transform", "rotate(90)")
+                .attr("text-anchor", "start")
+                .attr("x", width - 850);
+ });
+    </script>
+</body>
+
+</html>

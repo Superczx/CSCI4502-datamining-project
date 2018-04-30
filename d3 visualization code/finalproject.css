@@ -1,0 +1,37 @@
+body {
+    font-family: sans-serif;
+    font-size: 11px;
+    /*background-image: url("https://static9.depositphotos.com/1280399/1212/i/450/depositphotos_12123001-stock-photo-old-grunge-parchment-background-canvas.jpg"); */
+
+    background-color: lightblue;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.point {
+    fill: #f00;
+    stroke: #000;
+}
+
+.label {
+    text-anchor: middle;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bar:hover {
+    fill: brown;
+}
+
+#partOne{
+    font-family: fantasy;
+    font-size: 150%;
+    border: 10px;
+    margin:10px;
+}
