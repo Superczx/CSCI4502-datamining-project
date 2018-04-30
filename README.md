@@ -33,5 +33,5 @@ Link to the video demonstration:</br>
 
 Link to your final project paper:</br>
 https://github.com/Superczx/CSCI4502-datamining-project/blob/master/17_U.S.%20PollutionDatasetAnalysis_part3.pdf
-Link to the visualization:</br>
+<br>Link to the visualization:</br>
 https://www.screencast.com/t/qbGOfZSv
